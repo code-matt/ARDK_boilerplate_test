@@ -13,7 +13,6 @@ public class GrowState1 : BaseState
     {
        
         currentModel = Instantiate(state1Prefab, transform);
-        //currentModel.transform.SetParent(transform);
         Debug.Log("Enter grow state1");
     }
 
