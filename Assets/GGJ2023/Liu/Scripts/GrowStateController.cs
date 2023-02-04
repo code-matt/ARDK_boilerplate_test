@@ -33,14 +33,21 @@ public class GrowStateController : MonoBehaviour
             stateMachine.SwitchState(state1);
         }
 
-        time += Time.deltaTime;
-        if(time > upgrade1 && time < upgrade2)
+
+        if(time < upgrade2)
         {
-            stateMachine.SwitchState(state2);
+            time += Time.deltaTime;
+            if (time > upgrade1 && time < upgrade2)
+            {
+                stateMachine.SwitchState(state2);
+            }
+            else if (time > upgrade2)
+            {
+                stateMachine.SwitchState(state3);
+            }
         }
-        else if (time > upgrade2)
-        {
-            stateMachine.SwitchState(state3);
-        }
+
     }
+
+
 }
