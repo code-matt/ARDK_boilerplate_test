@@ -70,7 +70,7 @@ using UnityEngine.UI;
 
     /// Reference to AR Camera, used for hit test
     [SerializeField]
-    private Camera _camera = null;
+    public Camera _camera = null;
 
     /// References to game objects after instantiation
     private GameObject _ball;
@@ -84,8 +84,15 @@ using UnityEngine.UI;
     /// HLAPI Networking objects
     private IHlapiSession _manager;
 
-    private IAuthorityReplicator _auth;
+    public IAuthorityReplicator _auth;
     private MessageStreamReplicator<Vector3> _hitStreamReplicator;
+
+
+
+    public MessageStreamReplicator<Vector3> _rootPlantedReplicator;
+
+
+
 
     private INetworkedField<string> _scoreText;
     private int _redScore;
@@ -102,7 +109,7 @@ using UnityEngine.UI;
 
     private int _hitLockout = 0;
 
-    private IARNetworking _arNetworking;
+    public IARNetworking _arNetworking;
     // private BallBehaviour _ballBehaviour;
 
     private bool _isHost;
@@ -150,9 +157,8 @@ using UnityEngine.UI;
     }
 
     // Instantiate game objects
-    public void InstantiateObjects()
+    public void InstantiateObjects(Vector3 position)
     {
-      Vector3 position = new Vector3();
       rootPrefab.NetworkSpawn
         (
           _arNetworking.Networking,
@@ -445,6 +451,29 @@ using UnityEngine.UI;
 
           // _ballBehaviour.Hit(args.Message);
         };
+
+
+
+#pragma warning disable 0618
+      _rootPlantedReplicator =
+        new MessageStreamReplicator<Vector3>
+        (
+          "rootMessageStream",
+          _arNetworking.Networking.AnyToAnyDescriptor(TransportType.ReliableOrdered),
+          group
+        );
+#pragma warning restore 0618
+      _rootPlantedReplicator.MessageReceived +=
+        (args) =>
+        {
+          Debug.Log("A SEED WAS PLAN");
+          InstantiateObjects(args.Message);
+          // if (_auth.LocalRole != Role.Authority)
+          //   return;
+
+          // _ballBehaviour.Hit(args.Message);
+        };
+
     }
 
     private void OnFieldPositionDidChange(NetworkedFieldValueChangedArgs<Vector3> args)

@@ -1,7 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Niantic.ARDK.AR.HitTest;
+using Niantic.ARDK.AR.Networking;
+using Niantic.ARDK.Networking.HLAPI.Authority;
+using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Input.Legacy;
+using UnityEngine;
 
 public class TouchManager : MonoBehaviour
 {
@@ -16,7 +18,32 @@ public class TouchManager : MonoBehaviour
 
     private void TouchBegan(Touch touch)
     {
-        mainGamePrefab.InstantiateObjects();
+        // mainGamePrefab.InstantiateObjects();
+        // mainGamePrefab._rootPlantedReplicator.SendMessage(new Vector3(), mainGamePrefab._auth.PeerOfRole(Role.Authority));
+
+        // If the ARSession isn't currently running, its CurrentFrame property will be null
+        var currentFrame = mainGamePrefab._arNetworking.ARSession.CurrentFrame;
+        if (currentFrame == null)
+            return;
+
+        // Hit test from the touch position
+        var results =
+            mainGamePrefab._arNetworking.ARSession.CurrentFrame.HitTest
+            (
+                mainGamePrefab._camera.pixelWidth,
+                mainGamePrefab._camera.pixelHeight,
+                touch.position,
+                ARHitTestResultType.All
+            );
+
+        if (results.Count == 0)
+            return;
+
+        var closestHit = results[0];
+        var position = closestHit.WorldTransform.ToPosition();
+
+        mainGamePrefab.InstantiateObjects(position);
+        mainGamePrefab._rootPlantedReplicator.SendMessage(position, mainGamePrefab._auth.PeerOfRole(Role.Authority));
     }
 
     // Update is called once per frame

@@ -69,6 +69,11 @@ namespace Niantic.ARDKExamples.PongHLAPI
     private IAuthorityReplicator _auth;
     private MessageStreamReplicator<Vector3> _hitStreamReplicator;
 
+
+    private MessageStreamReplicator<Vector3> _seedPlantReplicator;
+
+
+
     private INetworkedField<string> _scoreText;
     private int _redScore;
     private int _blueScore;
