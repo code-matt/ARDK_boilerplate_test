@@ -9,8 +9,8 @@ public class GrowStateController : MonoBehaviour
     public GrowState2 state2;
     public GrowState3 state3;
     private float time;
-    private const int upgrade1 = 10;
-    private const int upgrade2 = 20;
+    private const int upgrade1 = 5;
+    private const int upgrade2 = 10;
     private void Start()
     {
         stateMachine.SwitchState(state1);
@@ -20,14 +20,6 @@ public class GrowStateController : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
-        {
-            stateMachine.SwitchState(state2);
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            stateMachine.SwitchState(state3);
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
         {
             time = 0;
             stateMachine.SwitchState(state1);
