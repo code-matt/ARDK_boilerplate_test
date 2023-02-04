@@ -14,7 +14,7 @@ public class SceneManager : MonoBehaviour
     public GameObject _ballPrefab;  //This will store the Ball Prefab we created earlier, so we can spawn a new Ball whenever we want
     public Camera _mainCamera;  //This will reference the MainCamera in the scene, so the ARDK can leverage the device camera
     IARSession _ARsession;  //An ARDK ARSession is the main piece that manages the AR experience
-    
+
     // Start is called before the first frame update
     void Start()
     {
