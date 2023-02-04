@@ -32,7 +32,8 @@ using UnityEngine.UI;
   {
 
 
-
+    [SerializeField]
+    private NetworkedUnityObject rootPrefab = null;
 
 
 
@@ -149,8 +150,16 @@ using UnityEngine.UI;
     }
 
     // Instantiate game objects
-    private void InstantiateObjects(Vector3 position)
+    public void InstantiateObjects()
     {
+      Vector3 position = new Vector3();
+      rootPrefab.NetworkSpawn
+        (
+          _arNetworking.Networking,
+          position,
+          Quaternion.identity,
+          Role.Authority
+        );
       /*
       if (_playingField != null && _isHost)
       {
@@ -258,6 +267,7 @@ using UnityEngine.UI;
     // If so, either bounce the ball (if host) or tell host to bounce the ball
     private void Update()
     {
+
       if (_manager != null)
         _manager.SendQueuedData();
 
@@ -340,7 +350,7 @@ using UnityEngine.UI;
 
       var hitPosition = result.WorldTransform.ToPosition();
 
-      InstantiateObjects(hitPosition);
+      // InstantiateObjects(hitPosition);
     }
 
     // Every updated frame, get our location from the frame data and move the local player's avatar
@@ -366,12 +376,12 @@ using UnityEngine.UI;
 
           if (_isHost)
           {
-            startGame.SetActive(true);
-            InstantiateObjects(_location);
+            // startGame.SetActive(true);
+            // InstantiateObjects(_location);
           }
           else
           {
-            InstantiateObjects(_arNetworking.LatestPeerPoses[args.Peer].ToPosition());
+            // InstantiateObjects();
           }
         }
 

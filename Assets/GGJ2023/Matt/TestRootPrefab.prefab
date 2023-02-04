@@ -34,7 +34,7 @@ Transform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5053286622246419951}
+  - {fileID: 5220845909957088756}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   _rawId: 0
   _prefabId: 787453456348568346
   _destructionAuthorizedPeers: -1
-  _destroyIfDestroyerLeaves: 0
+  _destroyIfDestroyerLeaves: 1
   _auth: {fileID: 114574812935425414}
   _defaultBehaviour: {fileID: 1243529309847864631}
   _behaviours:
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _owner: {fileID: 114491438834899396}
-  _ownedByHost: 1
+  _ownedByHost: 0
   _observeByDefault: 1
 --- !u!1001 &3696670495291121335
 PrefabInstance:
@@ -227,9 +227,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f57bb9b7c61deb41b1bb9dc52a59319, type: 3}
---- !u!4 &5053286622246419951 stripped
+--- !u!4 &5220845909957088756 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8461656022493537112, guid: 2f57bb9b7c61deb41b1bb9dc52a59319,
+  m_CorrespondingSourceObject: {fileID: 8879160624944614211, guid: 2f57bb9b7c61deb41b1bb9dc52a59319,
     type: 3}
   m_PrefabInstance: {fileID: 3696670495291121335}
   m_PrefabAsset: {fileID: 0}
