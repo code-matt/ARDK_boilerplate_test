@@ -24,6 +24,6 @@ public class GrowState1 : BaseState
 
     public override void UpdateState()
     {
-        Debug.Log("Update grow state1");
+        //Debug.Log("Update grow state1");
     }
 }
