@@ -8,6 +8,8 @@ public class GrowState1 : BaseState
     public GameObject state1Prefab;
     private GameObject currentModel;
     private GrowStateController controller;
+
+    public GameObject existPrefab;
     //private Material material;
 
 
@@ -24,11 +26,14 @@ public class GrowState1 : BaseState
     public override void Exit()
     {
         Destroy(currentModel);
+        Destroy(Instantiate(existPrefab, transform), 1.0f);
+        
         Debug.Log("Exit grow state1");
     }
 
     public override void UpdateState()
     {
+        
         //Debug.Log("Update grow state1");
     }
 }
