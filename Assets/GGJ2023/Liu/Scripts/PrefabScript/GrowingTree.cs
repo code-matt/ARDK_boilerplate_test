@@ -32,7 +32,7 @@ public class GrowingTree : MonoBehaviour
             float growthFactor = elapsedTime / growthDuration;
 
             Vector3 newScale = Vector3.Lerp(startScale, finalScale, growthFactor);
-            Vector3 newPosition = startPosition + new Vector3(0, newScale.y / 4, 0) - new Vector3(0, startScale.y / 4, 0);
+            Vector3 newPosition = startPosition + new Vector3(0, newScale.y / 12, 0) - new Vector3(0, startScale.y / 12, 0);
 
             transform.localScale = newScale;
             transform.position = newPosition;
