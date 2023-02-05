@@ -168,6 +168,22 @@ using UnityEngine.UI;
 
     }
 
+    internal void PlantRoot(Vector3 position)
+    {
+        TestRootBehavior behavior = rootPrefab.NetworkSpawn
+        (
+          _arNetworking.Networking,
+          position,
+          Quaternion.identity
+        ).DefaultBehaviour as TestRootBehavior;
+        behavior.Controller = this;
+    }
+
+    internal void RootPlanted(string ARDK_id, GameObject rootObject)
+    {
+      Debug.Log("A root was planted by: " + ARDK_id);
+    }
+
     //
     internal void RootFinished(string ARDK_id, string networkedPrefabID)
     {
@@ -202,7 +218,7 @@ using UnityEngine.UI;
     private void OnPeerStateReceived(PeerStateReceivedArgs args)
     {
       PlayerObject player = mainBrain.CreatePlayer(args.Peer.Identifier.ToString());
-
+      Debug.Log("Added player: " + args.Peer.Identifier.ToString());
       if (_self.Identifier != args.Peer.Identifier)
       {
         if (args.State == PeerState.Stable)

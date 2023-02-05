@@ -223,6 +223,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &753038769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 753038771}
+  - component: {fileID: 753038770}
+  m_Layer: 0
+  m_Name: MainBrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &753038770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753038769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93241536f589a4495a4bc79a90352b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &753038771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753038769}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 225.64755, y: 306.35553, z: 48.71747}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!223 &769314051 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 3497355735732933212, guid: 37f6107f953ca4804a7fd8a4ed36caca,
@@ -374,7 +418,6 @@ GameObject:
   - component: {fileID: 1232522627}
   - component: {fileID: 1232522630}
   - component: {fileID: 1232522631}
-  - component: {fileID: 1232522632}
   m_Layer: 0
   m_Name: GGJ2023Main
   m_TagString: Untagged
@@ -440,24 +483,12 @@ MonoBehaviour:
     type: 3}
   loading_screen_canvas: {fileID: 769314051}
   game_canvas: {fileID: 1789512594}
-  mainBrain: {fileID: 1232522632}
+  mainBrain: {fileID: 753038770}
   myColor: {r: 0, g: 0, b: 0, a: 0}
   joinButton: {fileID: 843234956}
   preloadManager: {fileID: 1232522627}
   _camera: {fileID: 50851761}
   score: {fileID: 1363297744}
---- !u!114 &1232522632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232522626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93241536f589a4495a4bc79a90352b92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1363297744 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3497355736462195459, guid: fcc1f083863c640279125d4755f5fc2a,

@@ -44,13 +44,7 @@ public class TouchManager : MonoBehaviour
         var closestHit = results[0];
         var position = closestHit.WorldTransform.ToPosition();
 
-
-        mainGamePrefab.rootPrefab.NetworkSpawn
-        (
-          mainGamePrefab._arNetworking.Networking,
-          position,
-          Quaternion.identity
-        );
+        mainGamePrefab.PlantRoot(position);
         // mainGamePrefab.InstantiateObjects(position);
         // mainGamePrefab._rootPlantedReplicator.SendMessage(position);
     }

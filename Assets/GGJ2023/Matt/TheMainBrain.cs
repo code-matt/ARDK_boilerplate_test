@@ -24,6 +24,7 @@ public class TheMainBrain : MonoBehaviour
     }
 
     public PlayerObject GetPlayerByARDKID(string ARDK_id) {
+        Debug.Log("Searching for player:" + ARDK_id);
         PlayerObject player = players.Find(p => p.ARDK_id == ARDK_id);
         return player;
     }
