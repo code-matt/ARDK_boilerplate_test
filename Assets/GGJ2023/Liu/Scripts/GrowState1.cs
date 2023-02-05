@@ -10,6 +10,7 @@ public class GrowState1 : BaseState
     private GrowStateController controller;
 
     public GameObject existPrefab;
+    public string name = "0";
     //private Material material;
 
 

@@ -19,7 +19,7 @@ public class GrowingTree : MonoBehaviour
         startScale = transform.localScale;
         startPosition = transform.position;
         startTime = Time.time;
-
+        finalScale = startScale * 5;
         StartCoroutine(GrowTree());
     }
 
