@@ -59,10 +59,12 @@ public class TouchManager : MonoBehaviour
     {
         foreach (GameObject go in gameObjects)
         {
-            float currentDistance = Vector3.Distance(go.transform.position, position);
-            if (currentDistance < distance)
-            {
-                return false;
+            if (go) {
+                float currentDistance = Vector3.Distance(go.transform.position, position);
+                if (currentDistance < distance)
+                {
+                    return false;
+                }
             }
         }
         return true;
