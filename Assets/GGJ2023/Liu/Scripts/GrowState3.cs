@@ -7,7 +7,7 @@ public class GrowState3 : BaseState
     public GameObject state3Prefab;
     private GameObject currentModel;
     private GrowStateController controller;
-    public string name = "3";
+    public string name = "2";
 
     public override void Enter()
     {

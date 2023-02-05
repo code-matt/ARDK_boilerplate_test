@@ -19,7 +19,7 @@ public class GrowState2 : BaseState
         renderer.material.color = controller.randomColor;
         TestRootBehavior rootBehavior = GetComponentInParent<TestRootBehavior>();
         MainGame mainGame = FindObjectOfType<MainGame>();
-        mainGame.RootFinished(rootBehavior.Owner.SpawningPeer.Identifier.ToString(), rootBehavior.gameObject);
+        mainGame?.RootFinished(rootBehavior.Owner.SpawningPeer.Identifier.ToString(), rootBehavior.gameObject);
         Debug.Log("Enter grow state2");
     }
 
