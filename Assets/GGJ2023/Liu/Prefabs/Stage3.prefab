@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8970421549062934813}
   - component: {fileID: 5463584648454528696}
   - component: {fileID: 7797553961119525490}
+  - component: {fileID: 7298539035527145434}
   m_Layer: 0
   m_Name: Stage3
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8590201170014210983}
-  m_LocalRotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.049637154, y: 0.19607787, z: 0.0034608953}
   m_LocalScale: {x: 0.61375177, y: 0.61375177, z: 0.61375177}
   m_ConstrainProportionsScale: 0
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7298539035527145434
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590201170014210983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4735445, y: 0.73916817, z: 1.5089796}
+  m_Center: {x: 0.017818956, y: 0.05010989, z: 0.010128497}
