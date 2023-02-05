@@ -26,6 +26,8 @@ public class MattsColliderBehavior : MonoBehaviour
 
     public void DestoryParent()
     {   
+        MainGame mainGame = FindObjectOfType<MainGame>();
+        mainGame.mainBrain.roots.Remove(gameObject);
         Destroy(gameObject);
     }
 }
