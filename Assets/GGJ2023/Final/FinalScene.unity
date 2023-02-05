@@ -305,6 +305,11 @@ PrefabInstance:
       propertyPath: _useWithARNetworkingSession
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3061143500043066512, guid: 903492e152bd34b2b8e964fe195297e8,
+        type: 3}
+      propertyPath: m_Name
+      value: player
+      objectReference: {fileID: 0}
     - target: {fileID: 3306898940575427816, guid: 903492e152bd34b2b8e964fe195297e8,
         type: 3}
       propertyPath: _manageUsingUnityLifecycle
@@ -485,6 +490,10 @@ MonoBehaviour:
   game_canvas: {fileID: 2515226984304012337}
   mainBrain: {fileID: 753038770}
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  scoreElements:
+  - {fileID: 1982497567}
+  - {fileID: 1609416098}
+  peerConnected: 0
   joinButton: {fileID: 843234956}
   preloadManager: {fileID: 1232522627}
   _camera: {fileID: 50851761}
@@ -557,6 +566,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1457889727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3061143500043066512, guid: 903492e152bd34b2b8e964fe195297e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 814269315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1457889733
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457889727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1490560825
 GameObject:
   m_ObjectHideFlags: 0

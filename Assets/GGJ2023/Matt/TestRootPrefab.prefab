@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 114491438834899396}
   - component: {fileID: 1243529309847864631}
   - component: {fileID: 114574812935425414}
+  - component: {fileID: 2115793654908419133}
   m_Layer: 0
   m_Name: TestRootPrefab
   m_TagString: Untagged
@@ -158,6 +159,18 @@ MonoBehaviour:
   _owner: {fileID: 114491438834899396}
   _ownedByHost: 0
   _observeByDefault: 1
+--- !u!114 &2115793654908419133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526469790036540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b72412e2f6e46298068cdad7f291f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4161075868611193019
 PrefabInstance:
   m_ObjectHideFlags: 0
