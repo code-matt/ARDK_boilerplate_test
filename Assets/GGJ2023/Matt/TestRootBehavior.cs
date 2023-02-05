@@ -28,7 +28,7 @@ using UnityEngine;
     private bool _gameStart;
     private bool _isHost;
 
-    private PlayerObject ownerPlayer = null;
+    public PlayerObject ownerPlayer = null;
     
     // Store the start location of the ball
     private void Start()

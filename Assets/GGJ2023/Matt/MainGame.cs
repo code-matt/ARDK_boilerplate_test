@@ -128,7 +128,7 @@ using UnityEngine.UI;
     // private BallBehaviour _ballBehaviour;
 
     private bool _isHost;
-    private IPeer _self;
+    public IPeer _self;
 
     private bool _gameStart;
     private bool _synced;
