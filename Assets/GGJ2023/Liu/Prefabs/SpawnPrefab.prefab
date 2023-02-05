@@ -79,6 +79,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state1Prefab: {fileID: 2437601505630486454, guid: 2f57bb9b7c61deb41b1bb9dc52a59319,
     type: 3}
+  existPrefab: {fileID: 1329845292236604, guid: fcb5439760eddfc47a79066e5533e19a,
+    type: 3}
 --- !u!114 &4476520562771068877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state2Prefab: {fileID: 7154391330541792064, guid: bb36c2e397209fd49b457a37ef549699,
+    type: 3}
+  existPrefab: {fileID: 1000011128802252, guid: 3bd192175504aed4ba363f5465ccbac5,
     type: 3}
 --- !u!114 &4476520562771068876
 MonoBehaviour:
