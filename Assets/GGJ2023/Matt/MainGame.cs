@@ -46,6 +46,11 @@ using UnityEngine.UI;
     public Color myColor;
 
 
+    public Text[] scoreElements;
+
+    public Boolean peerConnected = false;
+
+
 
 
     /*
@@ -185,9 +190,18 @@ using UnityEngine.UI;
     }
 
     //
-    internal void RootFinished(string ARDK_id, string networkedPrefabID)
+    internal void RootFinished(string ARDK_id, GameObject rootObject)
     {
+      Debug.Log("A root finished for ARDK_id: " + ARDK_id);
+      PlayerObject player = mainBrain.GetPlayerByARDKID(ARDK_id);
+      player.score += 1;
+      // int playerIndex = mainBrain.players.FindIndex(p => p == player);
 
+      if (_self.Identifier.ToString() == ARDK_id) {
+        scoreElements[0].text = player.score.ToString();
+      } else {
+        scoreElements[1].text = player.score.ToString();
+      }
     }
 
     internal void RootDestroyed(string ARDK_id, string networkedPrefabID)
@@ -217,30 +231,30 @@ using UnityEngine.UI;
 
     private void OnPeerStateReceived(PeerStateReceivedArgs args)
     {
-      PlayerObject player = mainBrain.CreatePlayer(args.Peer.Identifier.ToString());
-      Debug.Log("Added player: " + args.Peer.Identifier.ToString());
-      if (_self.Identifier != args.Peer.Identifier)
-      {
-        if (args.State == PeerState.Stable)
-        {
-          _synced = true;
-
-          if (_isHost)
-          {
-            // startGame.SetActive(true);
-            // InstantiateObjects(_location);
-          }
-          else
-          {
-            // InstantiateObjects();
-          }
-        }
-
-        return;
-      } else {
-        myColor = player.color;
+      if (!peerConnected && _self.Identifier != args.Peer.Identifier) {
+        PlayerObject player = mainBrain.CreatePlayer(args.Peer.Identifier.ToString());
+        Debug.Log("Added player for ARDK_id:" + player.ARDK_id);
+        peerConnected = true;
       }
+      // if (_self.Identifier != args.Peer.Identifier)
+      // {
+      //   if (args.State == PeerState.Stable)
+      //   {
+      //     _synced = true;
 
+      //     if (_isHost)
+      //     {
+      //       // startGame.SetActive(true);
+      //       // InstantiateObjects(_location);
+      //     }
+      //     else
+      //     {
+      //       // InstantiateObjects();
+      //     }
+      //   }
+
+      //   return;
+      // }
       string message = args.State.ToString();
       score.text = message;
       Debug.Log("We reached state " + message);
@@ -268,6 +282,9 @@ using UnityEngine.UI;
 
       _scoreText = new NetworkedField<string>("scoreText", authToObserverDescriptor, group);
       _scoreText.ValueChanged += OnScoreDidChange;
+
+      PlayerObject player = mainBrain.CreatePlayer(_self.Identifier.ToString());
+      Debug.Log("Added player for my own ARDK_id:" + player.ARDK_id);
 
       // vgood example below \
       // _gameStarted = new NetworkedField<byte>("gameStarted", authToObserverDescriptor, group);

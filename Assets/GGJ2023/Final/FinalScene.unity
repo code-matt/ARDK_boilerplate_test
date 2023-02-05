@@ -485,6 +485,9 @@ MonoBehaviour:
   game_canvas: {fileID: 1789512594}
   mainBrain: {fileID: 753038770}
   myColor: {r: 0, g: 0, b: 0, a: 0}
+  scoreElements:
+  - {fileID: 1982497567}
+  - {fileID: 1609416098}
   joinButton: {fileID: 843234956}
   preloadManager: {fileID: 1232522627}
   _camera: {fileID: 50851761}
@@ -748,12 +751,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37f6107f953ca4804a7fd8a4ed36caca, type: 3}
+--- !u!114 &1609416098 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4604224305207047321, guid: fcc1f083863c640279125d4755f5fc2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328275049498787437}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!223 &1789512594 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 3497355735732933212, guid: fcc1f083863c640279125d4755f5fc2a,
     type: 3}
   m_PrefabInstance: {fileID: 1328275049498787437}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1982497567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3581154638877700138, guid: fcc1f083863c640279125d4755f5fc2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328275049498787437}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2102637560 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3535680939991857710, guid: 37f6107f953ca4804a7fd8a4ed36caca,

@@ -33,26 +33,19 @@ using UnityEngine;
     // Store the start location of the ball
     private void Start()
     {
-      // Controller.RootPlanted(Owner.Auth.Identifier.ToString(), gameObject);
-      // Debug.Log("Start root prefab...");
-      // _initialPosition = transform.position;
       Debug.Log("Trying to find player: " + Owner.SpawningPeer.Identifier.ToString());
-      // Controller.gameObject.TryGetComponent<TheMainBrain>(out mainBrain);
-      // if (mainBrain) {
-      //   Debug.Log("MainBrain found...");
-      //   PlayerObject ownerPlayer = mainBrain.GetPlayerByARDKID("abcdefg");
-      ownerPlayer = Controller.mainBrain.GetPlayerByARDKID(Owner.SpawningPeer.Identifier.ToString());
-      //   // PlayerObject ownerPlayer = Controller.gameObject.GetComponentInChildren<TheMainBrain>().GetPlayerByARDKID(Owner.Auth.Identifier.ToString());
+      TheMainBrain mainBrain = FindObjectOfType<TheMainBrain>();
+      ownerPlayer = mainBrain.GetPlayerByARDKID(Owner.SpawningPeer.Identifier.ToString());
+      Debug.Log("Past the search...");
       if (ownerPlayer != null) {
         Debug.Log("got player..");
         theColor = ownerPlayer.color;
+        GrowStateController gsController = GetComponentInChildren<GrowStateController>();
+        gsController.randomColor = theColor;
         Debug.Log("The color of the tree should be: " + theColor.ToString());
       } else {
         Debug.Log("owner player not found..");
       }
-      // } else {
-      //   Debug.Log("mainBrain was null..");
-      // }
     }
     private void Update()
     {
