@@ -1070,6 +1070,7 @@ GameObject:
   - component: {fileID: 1232522627}
   - component: {fileID: 1232522630}
   - component: {fileID: 1232522631}
+  - component: {fileID: 1232522632}
   m_Layer: 0
   m_Name: GGJ2023Main
   m_TagString: Untagged
@@ -1138,6 +1139,18 @@ MonoBehaviour:
   preloadManager: {fileID: 1232522627}
   _camera: {fileID: 50851761}
   score: {fileID: 2094595986}
+--- !u!114 &1232522632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232522626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93241536f589a4495a4bc79a90352b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1291041700
 GameObject:
   m_ObjectHideFlags: 0
