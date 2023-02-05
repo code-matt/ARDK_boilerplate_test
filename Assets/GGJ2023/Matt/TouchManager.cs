@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using Niantic.ARDK.AR.HitTest;
 using Niantic.ARDK.Networking.HLAPI.Authority;
 using Niantic.ARDK.Networking.HLAPI.Object.Unity;
@@ -44,9 +46,26 @@ public class TouchManager : MonoBehaviour
         var closestHit = results[0];
         var position = closestHit.WorldTransform.ToPosition();
 
-        mainGamePrefab.PlantRoot(position);
+        if (CheckDistance(2, mainGamePrefab.mainBrain.roots, position)) {
+            mainGamePrefab.PlantRoot(position);
+        } else {
+            Debug.Log("A root is too close...");
+        }
         // mainGamePrefab.InstantiateObjects(position);
         // mainGamePrefab._rootPlantedReplicator.SendMessage(position);
+    }
+
+    public static bool CheckDistance(float distance, List<GameObject> gameObjects, Vector3 position)
+    {
+        foreach (GameObject go in gameObjects)
+        {
+            float currentDistance = Vector3.Distance(go.transform.position, position);
+            if (currentDistance < distance)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     // Update is called once per frame

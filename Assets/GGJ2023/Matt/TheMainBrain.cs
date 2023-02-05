@@ -12,6 +12,7 @@ public class PlayerObject
 public class TheMainBrain : MonoBehaviour
 {
     public List<PlayerObject> players = new List<PlayerObject>();
+    public List<GameObject> roots = new List<GameObject>();
 
     public PlayerObject CreatePlayer(string ARDK_id)
     {

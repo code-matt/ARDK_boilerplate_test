@@ -36,7 +36,11 @@ using UnityEngine;
       Debug.Log("Trying to find player: " + Owner.SpawningPeer.Identifier.ToString());
       TheMainBrain mainBrain = FindObjectOfType<TheMainBrain>();
       ownerPlayer = mainBrain.GetPlayerByARDKID(Owner.SpawningPeer.Identifier.ToString());
+
+      mainBrain.roots.Add(gameObject);
+      
       Debug.Log("Past the search...");
+
       if (ownerPlayer != null) {
         Debug.Log("got player..");
         theColor = ownerPlayer.color;

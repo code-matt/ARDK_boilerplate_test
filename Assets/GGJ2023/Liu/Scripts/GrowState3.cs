@@ -24,8 +24,7 @@ public class GrowState3 : BaseState
 
     public override void Exit()
     {
-        Destroy(currentModel);
-        Debug.Log("Exit grow state3");
+
     }
 
     public override int getCurrentStateIndex () {
