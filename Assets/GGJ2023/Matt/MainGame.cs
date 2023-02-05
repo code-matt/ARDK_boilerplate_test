@@ -159,222 +159,29 @@ using UnityEngine.UI;
     // When all players are ready, create the game. Only the host will have the option to call this
     public void StartGame()
     {
-      // startGame.SetActive(false);
 
-      _gameStart = true;
-      _gameStarted.Value = Convert.ToByte(true);
-      // _ballBehaviour.GameStart(_isHost);
     }
 
     // Instantiate game objects
     public void InstantiateObjects(Vector3 position)
     {
-      // rootPrefab.NetworkSpawn
-      //   (
-      //     _arNetworking.Networking,
-      //     position,
-      //     Quaternion.identity,
-      //     Role.Authority
-      //   );
-      /*
-      if (_playingField != null && _isHost)
-      {
-        Debug.Log("Relocating the playing field!");
-        _fieldPosition.Value = new Optional<Vector3>(position);
-        _player.transform.position = position + new Vector3(0, 0, -1);
-        _playingField.transform.position = position;
-        _ball.transform.position = position;
 
-        return;
-      }
-
-      Debug.Log("Instantiating the playing field!");
-
-      // Both players want to spawn an avatar that they are the Authority of
-      var startingOffset =
-        _isHost ? new Vector3(0, 0, -1) : new Vector3(0, 0, 1);
-
-      _player =
-        playerPrefab.NetworkSpawn
-        (
-          _arNetworking.Networking,
-          position + startingOffset,
-          Quaternion.identity,
-          Role.Authority
-        )
-        .gameObject;
-
-      // Only the host should spawn the remaining objects
-      if (!_isHost)
-        return;
-
-      // Instantiate the playing field at floor level
-      _playingField =
-        playingFieldPrefab.NetworkSpawn
-        (
-          _arNetworking.Networking,
-          position,
-          Quaternion.identity
-        )
-        .gameObject;
-
-      // Set the score text for all players
-      _scoreText.Value = "Score: 0 - 0";
-
-      // Spawn the ball and set up references
-      _ballBehaviour = ballPrefab.NetworkSpawn
-        (
-          _arNetworking.Networking,
-          position,
-          Quaternion.identity
-        )
-        .DefaultBehaviour as BallBehaviour;
-
-      _ball = _ballBehaviour.gameObject;
-
-      // _ballBehaviour.Controller = this;
-
-      */
-
-      // _ballBehaviour = ballPrefab.NetworkSpawn
-      //   (
-      //     _arNetworking.Networking,
-      //     position,
-      //     Quaternion.identity
-      //   )
-      //   .DefaultBehaviour as BallBehaviour;
-
-      // _ball = _ballBehaviour.gameObject;
-
-      // _ballBehaviour.Controller = this;
     }
 
-    // Reset the ball when a goal is scored, increase score for player that scored
-    // Only the host should call this method
-    internal void GoalScored(string color)
+    //
+    internal void RootFinished(string ARDK_id, string networkedPrefabID)
     {
-      // color param is the color of the goal that the ball went into
-      // we score points by getting the ball in our opponent's goal
-      if (color == "red")
-      {
-        Debug.Log
-        (
-          "Point scored for team blue. " +
-          "Setting score via HLAPI. Only host will receive this log entry."
-        );
 
-        _blueScore += 1;
-      }
-      else
-      {
-        Debug.Log
-        (
-          "Point scored for team red. " +
-          "Setting score via HLAPI. Only host will receive this log entry."
-        );
-
-        _redScore += 1;
-      }
-
-      _scoreText.Value = string.Format("Score: {0} - {1}", _redScore, _blueScore);
     }
 
-    // Every frame, detect if you have hit the ball
-    // If so, either bounce the ball (if host) or tell host to bounce the ball
+    internal void RootDestroyed(string ARDK_id, string networkedPrefabID)
+    {
+
+    }
+  
     private void Update()
     {
 
-      // if (_manager != null)
-      //   _manager.SendQueuedData();
-
-      // if (_synced && !_gameStart && _isHost)
-      // {
-      //   if (PlatformAgnosticInput.touchCount <= 0)
-      //     return;
-
-      //   var touch = PlatformAgnosticInput.GetTouch(0);
-
-      //   if (touch.phase == TouchPhase.Began)
-      //   {
-      //     var distance =
-      //       Vector2.Distance
-      //       (
-      //         touch.position,
-      //         new Vector2(startGame.transform.position.x, startGame.transform.position.y)
-      //       );
-
-      //     if (distance <= 80)
-      //       return;
-
-      //     FindFieldLocation(touch);
-      //   }
-      // }
-
-      // if (!_gameStart)
-      //   return;
-
-      // if (_recentlyHit)
-      // {
-      //   _hitLockout += 1;
-
-      //   if (_hitLockout >= 15)
-      //   {
-      //     _recentlyHit = false;
-      //     _hitLockout = 0;
-      //   }
-      // }
-
-
-
-
-      // var distance2 = Vector3.Distance(_player.transform.position, _ball.transform.position);
-      // if (distance2 > .25 || _recentlyHit)
-      //   return;
-
-      // var bounceDirection = _ball.transform.position - _player.transform.position;
-      // bounceDirection = Vector3.Normalize(bounceDirection);
-      // _recentlyHit = true;
-
-
-
-
-
-
-      //if (_isHost)
-        // _ballBehaviour.Hit(bounceDirection);
-      //else
-        //_hitStreamReplicator.SendMessage(bounceDirection, _auth.PeerOfRole(Role.Authority));
-    }
-
-    private void FindFieldLocation(Touch touch)
-    {
-      var currentFrame = _arNetworking.ARSession.CurrentFrame;
-
-      if (currentFrame == null)
-        return;
-
-      var results =
-        currentFrame.HitTest
-        (
-          _camera.pixelWidth,
-          _camera.pixelHeight,
-          touch.position,
-          ARHitTestResultType.ExistingPlaneUsingExtent
-        );
-
-      if (results.Count <= 0)
-      {
-        Debug.Log("Unable to place the field at the chosen location. Can't find a valid surface");
-
-        return;
-      }
-
-      // Get the closest result
-      var result = results[0];
-
-      var hitPosition = result.WorldTransform.ToPosition();
-
-      // InstantiateObjects(hitPosition);
     }
 
     // Every updated frame, get our location from the frame data and move the local player's avatar
@@ -388,6 +195,8 @@ using UnityEngine.UI;
       var playerPos = _player.transform.position;
       playerPos.x = _location.x;
       _player.transform.position = playerPos;
+
+      // todo for nametag or scorebar above head...
     }
 
     private void OnPeerStateReceived(PeerStateReceivedArgs args)
@@ -402,7 +211,6 @@ using UnityEngine.UI;
 
           if (_isHost)
           {
-            myColor = player.color;
             // startGame.SetActive(true);
             // InstantiateObjects(_location);
           }
@@ -441,44 +249,23 @@ using UnityEngine.UI;
       var authToObserverDescriptor =
         _auth.AuthorityToObserverDescriptor(TransportType.ReliableUnordered);
 
-      _fieldPosition =
-        new NetworkedField<Vector3>("fieldReplicator", authToObserverDescriptor, group);
-
-      _fieldPosition.ValueChangedIfReceiver += OnFieldPositionDidChange;
 
       _scoreText = new NetworkedField<string>("scoreText", authToObserverDescriptor, group);
       _scoreText.ValueChanged += OnScoreDidChange;
 
-      _gameStarted = new NetworkedField<byte>("gameStarted", authToObserverDescriptor, group);
+      // vgood example below \
+      // _gameStarted = new NetworkedField<byte>("gameStarted", authToObserverDescriptor, group);
 
-      _gameStarted.ValueChanged +=
-        value =>
-        {
-          _gameStart = Convert.ToBoolean(value.Value.Value);
+      // _gameStarted.ValueChanged +=
+      //   value =>
+      //   {
+      //     _gameStart = Convert.ToBoolean(value.Value.Value);
 
           // if (_gameStart)
             // _ball = FindObjectOfType<BallBehaviour>().gameObject;
-        };
-#pragma warning disable 0618
-      _hitStreamReplicator =
-        new MessageStreamReplicator<Vector3>
-        (
-          "hitMessageStream",
-          _arNetworking.Networking.AnyToAnyDescriptor(TransportType.ReliableOrdered),
-          group
-        );
-#pragma warning restore 0618
-      _hitStreamReplicator.MessageReceived +=
-        (args) =>
-        {
-          Debug.Log("Ball was hit");
+        // };
 
-          if (_auth.LocalRole != Role.Authority)
-            return;
-
-          // _ballBehaviour.Hit(args.Message);
-        };
-
+// TODO this is how can do destroys...
 #pragma warning disable 0618
       _rootPlantedReplicator =
         new MessageStreamReplicator<Vector3>
@@ -492,23 +279,8 @@ using UnityEngine.UI;
         (args) =>
         {
           Debug.Log("A SEED WAS PLAN");
-          // InstantiateObjects(args.Message);
-          // if (_auth.LocalRole != Role.Authority)
-          //   return;
-
-          // _ballBehaviour.Hit(args.Message);
         };
 
-    }
-
-    private void OnFieldPositionDidChange(NetworkedFieldValueChangedArgs<Vector3> args)
-    {
-      var value = args.Value;
-      if (!value.HasValue)
-        return;
-
-      var offsetPos = value.Value + new Vector3(0, 0, 1);
-      _player.transform.position = offsetPos;
     }
 
     private void OnScoreDidChange(NetworkedFieldValueChangedArgs<string> args)

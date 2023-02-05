@@ -4,7 +4,6 @@ using System;
 
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Networking.HLAPI.Data;
-using Niantic.ARDK.Networking.HLAPI.Object;
 using Niantic.ARDK.Networking.HLAPI.Object.Unity;
 
 using UnityEngine;
