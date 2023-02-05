@@ -9,14 +9,16 @@ public class GrowState2 : BaseState
     private GrowStateController controller;
     public GameObject existPrefab;
     public int growthIndex = 2;
+    public AudioManager audioManager;
 
     public override void Enter()
     {
-
+        audioManager = FindObjectOfType<AudioManager>();
         currentModel = Instantiate(state2Prefab, transform);
         controller = GetComponent<GrowStateController>();
         Renderer renderer = currentModel.GetComponent<Renderer>();
         renderer.material.color = controller.randomColor;
+        audioManager.PlaySoundEffect(audioManager.audioClips[1]);
         Debug.Log("Enter grow state2");
     }
 

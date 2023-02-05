@@ -4923,6 +4923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ed3a8a4ad718a4a907382a9c57c7f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 3670698079628281072, guid: 21b12f96f3060074cb7ca84f6c332a73,
+    type: 3}
 --- !u!65 &1195538476603803413
 BoxCollider:
   m_ObjectHideFlags: 0

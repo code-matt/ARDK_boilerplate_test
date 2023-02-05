@@ -81,6 +81,9 @@ MonoBehaviour:
     type: 3}
   existPrefab: {fileID: 1329845292236604, guid: fcb5439760eddfc47a79066e5533e19a,
     type: 3}
+  audioManager: {fileID: 3670698079628281072, guid: 21b12f96f3060074cb7ca84f6c332a73,
+    type: 3}
+  growthIndex: 1
 --- !u!114 &4476520562771068877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +100,9 @@ MonoBehaviour:
     type: 3}
   existPrefab: {fileID: 1000011128802252, guid: 3bd192175504aed4ba363f5465ccbac5,
     type: 3}
+  growthIndex: 2
+  audioManager: {fileID: 3670698079628281072, guid: 21b12f96f3060074cb7ca84f6c332a73,
+    type: 3}
 --- !u!114 &4476520562771068876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,4 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state3Prefab: {fileID: 8590201170014210983, guid: 8b10e0d99dfa36341aa7f59af005a923,
+    type: 3}
+  growthIndex: 3
+  audioManager: {fileID: 3670698079628281072, guid: 21b12f96f3060074cb7ca84f6c332a73,
     type: 3}
