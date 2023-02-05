@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6894318593495580255}
   - component: {fileID: 8667596887634496149}
   - component: {fileID: 8165438139906638695}
+  - component: {fileID: 7793042618779953418}
   m_Layer: 0
   m_Name: stage2
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7154391330541792064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01918137, y: 0.18128547, z: 0.00000002435726}
-  m_LocalScale: {x: 0.61375177, y: 0.61375177, z: 0.61375177}
+  m_LocalScale: {x: 0.7137518, y: 0.8, z: 0.7137518}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -92,8 +93,20 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7154391330541792064}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.30263284, y: 0.47242114, z: 0.30406746}
   m_Center: {x: -0.06091165, y: -0.06654115, z: -0.0054688673}
+--- !u!114 &7793042618779953418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7154391330541792064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ed3a8a4ad718a4a907382a9c57c7f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

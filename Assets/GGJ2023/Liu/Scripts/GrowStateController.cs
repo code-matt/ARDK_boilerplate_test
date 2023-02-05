@@ -22,27 +22,26 @@ public class GrowStateController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             time = 0;
             stateMachine.SwitchState(state1);
         }
 
 
-        if(time < upgrade2)
+        if (time < upgrade2)
         {
             time += Time.deltaTime;
-            if (time > upgrade1 && time < upgrade2)
+            if (time > upgrade1 && time < upgrade2 && stateMachine.getState()!=state2)
             {
                 stateMachine.SwitchState(state2);
             }
-            else if (time > upgrade2)
-            {
-                stateMachine.SwitchState(state3);
-            }
+            //else if (time > upgrade2)
+            //{
+            //    stateMachine.SwitchState(state3);
+            //}
         }
 
     }
-
 
 }
