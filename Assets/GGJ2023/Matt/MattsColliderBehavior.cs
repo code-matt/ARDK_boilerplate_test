@@ -9,7 +9,12 @@ public class MattsColliderBehavior : MonoBehaviour
         TestRootBehavior rootBehavior = GetComponent<TestRootBehavior>();
         MainGame mainGame = FindObjectOfType<MainGame>();
 
+        GrowStateController growController = GetComponentInChildren<GrowStateController>();
+
         if(rootBehavior.ownerPlayer.ARDK_id == mainGame._self.Identifier.ToString())
+            return;
+
+        if(growController.stateMachine.getState().getCurrentStateIndex() > 2)
             return;
 
         // if(rootBehavior.ownerPlayer.ARDK_id == mainGame._self.Identifier.ToString());

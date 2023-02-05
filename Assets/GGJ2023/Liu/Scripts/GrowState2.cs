@@ -8,7 +8,7 @@ public class GrowState2 : BaseState
     private GameObject currentModel;
     private GrowStateController controller;
     public GameObject existPrefab;
-    public string name = "1";
+    public int growthIndex = 2;
 
     public override void Enter()
     {
@@ -17,12 +17,12 @@ public class GrowState2 : BaseState
         controller = GetComponent<GrowStateController>();
         Renderer renderer = currentModel.GetComponent<Renderer>();
         renderer.material.color = controller.randomColor;
-        TestRootBehavior rootBehavior = GetComponentInParent<TestRootBehavior>();
-        MainGame mainGame = FindObjectOfType<MainGame>();
-        mainGame?.RootFinished(rootBehavior.Owner.SpawningPeer.Identifier.ToString(), rootBehavior.gameObject);
         Debug.Log("Enter grow state2");
     }
 
+    public override int getCurrentStateIndex () {
+        return growthIndex;
+    }
     public override void Exit()
     {
         Destroy(currentModel);
