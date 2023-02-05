@@ -11,10 +11,14 @@ public class GrowStateController : MonoBehaviour
     private float time;
     private const int upgrade1 = 5;
     private const int upgrade2 = 10;
+
+    public Color randomColor;
+
     private void Start()
     {
-        stateMachine.SwitchState(state1);
         time = 0.0f;
+        randomColor = Random.ColorHSV();
+        stateMachine.SwitchState(state1);
     }
 
     private void Update()

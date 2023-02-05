@@ -6,14 +6,19 @@ public class GrowState1 : BaseState
 {
 
     public GameObject state1Prefab;
-
     private GameObject currentModel;
-    
+    private GrowStateController controller;
+    //private Material material;
+
+
     public override void Enter()
     {
-       
+        
         currentModel = Instantiate(state1Prefab, transform);
-        Debug.Log("Enter grow state1");
+        controller = GetComponent<GrowStateController>();
+        Renderer renderer = currentModel.GetComponent<Renderer>();
+        renderer.material.color = controller.randomColor;
+
     }
 
     public override void Exit()

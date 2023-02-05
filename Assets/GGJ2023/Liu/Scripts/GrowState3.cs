@@ -5,14 +5,16 @@ using UnityEngine;
 public class GrowState3 : BaseState
 {
     public GameObject state3Prefab;
-
     private GameObject currentModel;
+    private GrowStateController controller;
 
     public override void Enter()
     {
 
         currentModel = Instantiate(state3Prefab, transform);
-        Debug.Log("Enter grow state3");
+        controller = GetComponent<GrowStateController>();
+        Renderer renderer = currentModel.GetComponent<Renderer>();
+        renderer.material.color = controller.randomColor;
     }
 
     public override void Exit()

@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4476520562771068872}
   - component: {fileID: 4476520562771068879}
+  - component: {fileID: 4476520562771068867}
   - component: {fileID: 4476520562771068878}
   - component: {fileID: 4476520562771068877}
   - component: {fileID: 4476520562771068876}
-  - component: {fileID: 4476520562771068867}
   m_Layer: 0
   m_Name: SpawnPrefab
   m_TagString: Untagged
@@ -48,6 +48,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00941610530ee8d4f95cb2ff64a50bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4476520562771068867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4476520562771068866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2dde34125cf2c942aaef8da1e721961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 4476520562771068879}
+  state1: {fileID: 4476520562771068878}
+  state2: {fileID: 4476520562771068877}
+  state3: {fileID: 4476520562771068876}
+  randomColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4476520562771068878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,19 +107,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state3Prefab: {fileID: 8590201170014210983, guid: 8b10e0d99dfa36341aa7f59af005a923,
     type: 3}
---- !u!114 &4476520562771068867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4476520562771068866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2dde34125cf2c942aaef8da1e721961, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateMachine: {fileID: 4476520562771068879}
-  state1: {fileID: 4476520562771068878}
-  state2: {fileID: 4476520562771068877}
-  state3: {fileID: 4476520562771068876}
