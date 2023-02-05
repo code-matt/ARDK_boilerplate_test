@@ -10,7 +10,7 @@ public class GrowState1 : BaseState
     private GrowStateController controller;
 
     public GameObject existPrefab;
-    public string name = "0";
+    public int growthIndex = 1;
     //private Material material;
 
 
@@ -24,6 +24,9 @@ public class GrowState1 : BaseState
 
     }
 
+    public override int getCurrentStateIndex () {
+        return growthIndex;
+    }
     public override void Exit()
     {
         Destroy(currentModel);
