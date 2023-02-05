@@ -507,12 +507,12 @@ PrefabInstance:
     - target: {fileID: 224182767843897508, guid: f5d83f22ee5854644a5e1d28384d3ab9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 66
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 224182767843897508, guid: f5d83f22ee5854644a5e1d28384d3ab9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1477
+      value: -1629
       objectReference: {fileID: 0}
     - target: {fileID: 224610311064575150, guid: f5d83f22ee5854644a5e1d28384d3ab9,
         type: 3}
@@ -667,6 +667,10 @@ PrefabInstance:
     - target: {fileID: 1230155860876018, guid: 53d58211943764d66a747d5ba617615e, type: 3}
       propertyPath: m_Name
       value: ScrollingLog
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230155860876018, guid: 53d58211943764d66a747d5ba617615e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1694428355449796, guid: 53d58211943764d66a747d5ba617615e, type: 3}
       propertyPath: m_IsActive

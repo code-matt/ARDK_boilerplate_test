@@ -16,18 +16,12 @@ public class GrowStateController : MonoBehaviour
     private void Start()
     {
         time = 0.0f;
-        randomColor = Random.ColorHSV();
+        // randomColor = Random.ColorHSV();
         stateMachine.SwitchState(state1);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            time = 0;
-            stateMachine.SwitchState(state1);
-        }
-
 
         if (time < upgrade2)
         {
@@ -36,7 +30,7 @@ public class GrowStateController : MonoBehaviour
             {
                 stateMachine.SwitchState(state2);
             }
-            else if (time > upgrade2)
+            else if (time > upgrade2 && stateMachine.getState()!=state3)
             {
                 stateMachine.SwitchState(state3);
             }
