@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2103201497334459049}
   - component: {fileID: 4239265863823285859}
   - component: {fileID: 3925709247568293830}
+  - component: {fileID: 820528792456479658}
   m_Layer: 0
   m_Name: Stage1
   m_TagString: Untagged
@@ -92,8 +93,20 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2437601505630486454}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.0052359756, y: 0.005225033, z: 0.010943042}
   m_Center: {x: 0.00012866769, y: -0.00035995073, z: 0.005490835}
+--- !u!114 &820528792456479658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2437601505630486454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ed3a8a4ad718a4a907382a9c57c7f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

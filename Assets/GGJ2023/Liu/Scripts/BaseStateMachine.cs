@@ -27,5 +27,10 @@ public class BaseStateMachine : MonoBehaviour
         currentState = newState;
         currentState.Enter();
     }
+
+    public BaseState getState()
+    {
+        return currentState;
+    }
     
 }
