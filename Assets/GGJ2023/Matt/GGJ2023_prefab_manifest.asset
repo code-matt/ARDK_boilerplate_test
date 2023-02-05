@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cabe4f37b454aa1aa61155165bcf4af, type: 3}
   m_Name: GGJ2023_prefab_manifest
   m_EditorClassIdentifier: 
-  Prefabs: []
+  Prefabs:
+  - {fileID: 114491438834899396, guid: bd6aa67ef8149400fbc27d721ae4b39f, type: 3}

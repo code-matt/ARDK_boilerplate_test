@@ -33,7 +33,7 @@ using UnityEngine.UI;
 
 
     [SerializeField]
-    private NetworkedUnityObject rootPrefab = null;
+    public NetworkedUnityObject rootPrefab = null;
 
 
 
@@ -159,13 +159,13 @@ using UnityEngine.UI;
     // Instantiate game objects
     public void InstantiateObjects(Vector3 position)
     {
-      rootPrefab.NetworkSpawn
-        (
-          _arNetworking.Networking,
-          position,
-          Quaternion.identity,
-          Role.Authority
-        );
+      // rootPrefab.NetworkSpawn
+      //   (
+      //     _arNetworking.Networking,
+      //     position,
+      //     Quaternion.identity,
+      //     Role.Authority
+      //   );
       /*
       if (_playingField != null && _isHost)
       {
@@ -452,8 +452,6 @@ using UnityEngine.UI;
           // _ballBehaviour.Hit(args.Message);
         };
 
-
-
 #pragma warning disable 0618
       _rootPlantedReplicator =
         new MessageStreamReplicator<Vector3>
@@ -467,7 +465,7 @@ using UnityEngine.UI;
         (args) =>
         {
           Debug.Log("A SEED WAS PLAN");
-          InstantiateObjects(args.Message);
+          // InstantiateObjects(args.Message);
           // if (_auth.LocalRole != Role.Authority)
           //   return;
 

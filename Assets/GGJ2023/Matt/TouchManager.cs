@@ -1,9 +1,11 @@
+using UnityEngine;
+using UnityEngine.UI;
+
 using Niantic.ARDK.AR.HitTest;
-using Niantic.ARDK.AR.Networking;
 using Niantic.ARDK.Networking.HLAPI.Authority;
+using Niantic.ARDK.Networking.HLAPI.Object.Unity;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Input.Legacy;
-using UnityEngine;
 
 public class TouchManager : MonoBehaviour
 {
@@ -42,8 +44,15 @@ public class TouchManager : MonoBehaviour
         var closestHit = results[0];
         var position = closestHit.WorldTransform.ToPosition();
 
-        mainGamePrefab.InstantiateObjects(position);
-        mainGamePrefab._rootPlantedReplicator.SendMessage(position, mainGamePrefab._auth.PeerOfRole(Role.Authority));
+
+        mainGamePrefab.rootPrefab.NetworkSpawn
+        (
+          mainGamePrefab._arNetworking.Networking,
+          position,
+          Quaternion.identity
+        );
+        // mainGamePrefab.InstantiateObjects(position);
+        // mainGamePrefab._rootPlantedReplicator.SendMessage(position);
     }
 
     // Update is called once per frame
