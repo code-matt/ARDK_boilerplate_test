@@ -35,6 +35,8 @@ namespace Niantic.ARDKExamples.PongHLAPI
     // Cache the floor level, so the ball is reset properly
     private Vector3 _initialPosition;
 
+    private Color theColor = UnityEngine.Random.ColorHSV();
+
     // Flags for whether the game has started and if the local player is the host
     private bool _gameStart;
     private bool _isHost;
@@ -43,6 +45,7 @@ namespace Niantic.ARDKExamples.PongHLAPI
     private void Start()
     {
       _initialPosition = transform.position;
+      theColor = Controller.mainBrain.GetPlayerByARDKID(Owner.Auth.Identifier.ToString()).color;
     }
 
     // Set up the initial conditions

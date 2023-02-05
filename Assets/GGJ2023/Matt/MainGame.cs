@@ -35,6 +35,16 @@ using UnityEngine.UI;
     [SerializeField]
     public NetworkedUnityObject rootPrefab = null;
 
+    [SerializeField]
+    public Canvas loading_screen_canvas = null;
+
+    [SerializeField]
+    public Canvas game_canvas = null;
+
+    public TheMainBrain mainBrain = null;
+
+    public Color myColor;
+
 
 
 
@@ -60,9 +70,9 @@ using UnityEngine.UI;
 
     /// Reference to the StartGame button
     [SerializeField]
-    private GameObject startGame = null;
+    // private GameObject startGame = null;
 
-    [SerializeField]
+    // [SerializeField]
     private Button joinButton = null;
 
     [SerializeField]
@@ -120,7 +130,7 @@ using UnityEngine.UI;
 
     private void Start()
     {
-      startGame.SetActive(false);
+      // startGame.SetActive(false);
       ARNetworkingFactory.ARNetworkingInitialized += OnAnyARNetworkingSessionInitialized;
 
       if (preloadManager.AreAllFeaturesDownloaded())
@@ -149,7 +159,7 @@ using UnityEngine.UI;
     // When all players are ready, create the game. Only the host will have the option to call this
     public void StartGame()
     {
-      startGame.SetActive(false);
+      // startGame.SetActive(false);
 
       _gameStart = true;
       _gameStarted.Value = Convert.ToByte(true);
@@ -274,53 +284,61 @@ using UnityEngine.UI;
     private void Update()
     {
 
-      if (_manager != null)
-        _manager.SendQueuedData();
+      // if (_manager != null)
+      //   _manager.SendQueuedData();
 
-      if (_synced && !_gameStart && _isHost)
-      {
-        if (PlatformAgnosticInput.touchCount <= 0)
-          return;
+      // if (_synced && !_gameStart && _isHost)
+      // {
+      //   if (PlatformAgnosticInput.touchCount <= 0)
+      //     return;
 
-        var touch = PlatformAgnosticInput.GetTouch(0);
+      //   var touch = PlatformAgnosticInput.GetTouch(0);
 
-        if (touch.phase == TouchPhase.Began)
-        {
-          var distance =
-            Vector2.Distance
-            (
-              touch.position,
-              new Vector2(startGame.transform.position.x, startGame.transform.position.y)
-            );
+      //   if (touch.phase == TouchPhase.Began)
+      //   {
+      //     var distance =
+      //       Vector2.Distance
+      //       (
+      //         touch.position,
+      //         new Vector2(startGame.transform.position.x, startGame.transform.position.y)
+      //       );
 
-          if (distance <= 80)
-            return;
+      //     if (distance <= 80)
+      //       return;
 
-          FindFieldLocation(touch);
-        }
-      }
+      //     FindFieldLocation(touch);
+      //   }
+      // }
 
-      if (!_gameStart)
-        return;
+      // if (!_gameStart)
+      //   return;
 
-      if (_recentlyHit)
-      {
-        _hitLockout += 1;
+      // if (_recentlyHit)
+      // {
+      //   _hitLockout += 1;
 
-        if (_hitLockout >= 15)
-        {
-          _recentlyHit = false;
-          _hitLockout = 0;
-        }
-      }
+      //   if (_hitLockout >= 15)
+      //   {
+      //     _recentlyHit = false;
+      //     _hitLockout = 0;
+      //   }
+      // }
 
-      var distance2 = Vector3.Distance(_player.transform.position, _ball.transform.position);
-      if (distance2 > .25 || _recentlyHit)
-        return;
 
-      var bounceDirection = _ball.transform.position - _player.transform.position;
-      bounceDirection = Vector3.Normalize(bounceDirection);
-      _recentlyHit = true;
+
+
+      // var distance2 = Vector3.Distance(_player.transform.position, _ball.transform.position);
+      // if (distance2 > .25 || _recentlyHit)
+      //   return;
+
+      // var bounceDirection = _ball.transform.position - _player.transform.position;
+      // bounceDirection = Vector3.Normalize(bounceDirection);
+      // _recentlyHit = true;
+
+
+
+
+
 
       //if (_isHost)
         // _ballBehaviour.Hit(bounceDirection);
@@ -374,6 +392,8 @@ using UnityEngine.UI;
 
     private void OnPeerStateReceived(PeerStateReceivedArgs args)
     {
+      PlayerObject player = mainBrain.CreatePlayer(args.Peer.Identifier.ToString());
+
       if (_self.Identifier != args.Peer.Identifier)
       {
         if (args.State == PeerState.Stable)
@@ -382,6 +402,7 @@ using UnityEngine.UI;
 
           if (_isHost)
           {
+            myColor = player.color;
             // startGame.SetActive(true);
             // InstantiateObjects(_location);
           }
@@ -392,6 +413,8 @@ using UnityEngine.UI;
         }
 
         return;
+      } else {
+        myColor = player.color;
       }
 
       string message = args.State.ToString();
@@ -401,6 +424,10 @@ using UnityEngine.UI;
 
     private void OnDidConnect(ConnectedArgs connectedArgs)
     {
+
+      loading_screen_canvas.gameObject.SetActive(false);
+      game_canvas.gameObject.SetActive(true);
+
       _isHost = connectedArgs.IsHost;
       _self = connectedArgs.Self;
 
